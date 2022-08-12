@@ -16,12 +16,15 @@ class ACMain : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.ac_main)
         viewModel = ViewModelProvider(this)[ACMainViewModel::class.java]
+        binding.myViewModel = viewModel
 
         viewModel.count.observe(this) {
             binding.countText.text = it.toString()
         }
+        /*
         binding.button.setOnClickListener {
             viewModel.updateCount()
         }
+         */
     }
 }
